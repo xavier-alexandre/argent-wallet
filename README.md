@@ -4,11 +4,15 @@ A [Next.js](https://nextjs.org) application that accepts an Ethereum address / E
 
 ![App screenshot](./docs/appScreenshot.png)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+```bash
+npm i
+# or
+yarn
+```
 
 ```bash
 npm run dev

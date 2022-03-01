@@ -23,7 +23,7 @@ const Main = () => {
         variant="standard"
         onChange={(e) => setAddress(e.target.value)}
         value={address}
-        error={!isAddressOrENS(address)}
+        error={address.length > 0 && !isAddressOrENS(address)}
         helperText="Ethereum address or ENS"
       />
       <WalletBalance address={address} />
