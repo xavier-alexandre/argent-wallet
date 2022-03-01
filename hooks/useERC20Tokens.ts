@@ -48,24 +48,26 @@ const useERC20Tokens = (address: string): ILoadable<Array<ITokenBalance>> => {
           // For a given token, reduce all events,
           // adding the transferred amount to the balance if the token was sent TO the address
           // or removing the transferred amount from the balance if the token was sent FROM the address
-          const balances = Object.values(byToken).map((eventsByToken: any) =>
-            eventsByToken.reduce(
-              (prev: any, cur: any) => ({
-                ...prev,
-                balance:
-                  cur.to.toLowerCase() === address.toLowerCase()
-                    ? prev.balance.add(BigNumber.from(cur.value))
-                    : prev.balance.sub(BigNumber.from(cur.value)),
-              }),
-              {
-                name: eventsByToken[0].tokenName,
-                symbol: eventsByToken[0].tokenSymbol,
-                address: eventsByToken[0].contractAddress,
-                decimal: eventsByToken[0].tokenDecimal,
-                balance: BigNumber.from(0),
-              }
+          const balances = Object.values(byToken)
+            .map((eventsByToken: any) =>
+              eventsByToken.reduce(
+                (prev: any, cur: any) => ({
+                  ...prev,
+                  balance:
+                    cur.to.toLowerCase() === address.toLowerCase()
+                      ? prev.balance.add(BigNumber.from(cur.value))
+                      : prev.balance.sub(BigNumber.from(cur.value)),
+                }),
+                {
+                  name: eventsByToken[0].tokenName,
+                  symbol: eventsByToken[0].tokenSymbol,
+                  address: eventsByToken[0].contractAddress,
+                  decimal: eventsByToken[0].tokenDecimal,
+                  balance: BigNumber.from(0),
+                }
+              )
             )
-          );
+            .filter((item) => item.balance.toString() !== "0");
 
           setBalances(balances);
         } else {
