@@ -1,6 +1,6 @@
 # Argent Assessment
 
-A web app that accepts an Ethereum address / ENS, and displays its ETH balance, number of guardians (if the address is an Argent wallet), and its ERC20 holdings.
+A [Next.js](https://nextjs.org) application that accepts an Ethereum address / ENS, and displays its ETH balance, number of guardians (if the address is an Argent wallet), and its ERC20 holdings.
 
 ![App screenshot](./docs/appScreenshot.png)
 
